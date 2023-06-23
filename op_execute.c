@@ -29,17 +29,6 @@ void op_execute(stack_t **stack, char *opc, unsigned int line_n)
 		{NULL, NULL}
 	};
 
-	if (strcmp(opc, "push") == 0)
-	{
-		char *arg = strtok(NULL, " \n\t");
-		if (arg == NULL)
-		{
-			fprintf(stderr, "L%d: usage: push integer\n", line_n);
-			exit(EXIT_FAILURE);
-		}
-		opst[i].f(stack, line_n);
-		return;
-	}
 	while (opst[i].opcode != NULL)
 	{
 		if (strcmp(opc, opst[i].opcode) == 0)

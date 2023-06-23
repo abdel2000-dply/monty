@@ -10,6 +10,11 @@ void push(stack_t **stack, unsigned int line_n)
 	stack_t *new;
 	int value;
 
+	if (arg == NULL)
+	{
+		fprintf(stderr, "L%d: usage: push integer\n", line_n);
+		exit(EXIT_FAILURE);
+	}
 	value = atoi(arg);
 	if (value == 0 && strcmp(arg, "0") != 0)
 	{
