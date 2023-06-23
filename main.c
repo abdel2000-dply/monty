@@ -43,7 +43,7 @@ int main(int argc, char *argv[])
 		arg = strtok(NULL, " \t\n");
 		op_execute(&stack, opc, arg, line_n);
 	}
-
+	free(line);
 	fclose(file);
 
 	return (EXIT_SUCCESS);
