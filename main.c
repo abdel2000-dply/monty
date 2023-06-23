@@ -33,10 +33,10 @@ int main(int argc, char *argv[])
 	while ((read = getline(&line, &len, file)) != -1)
 	{
 		line_n++;
-		opc = strtok(line, " \t\n");
+		opc = strtok(line, " \n\t");
 		if (opc == NULL)
 			continue; /* skip a line */
-		arg = strtok(NULL, " \t\n");
+		arg = strtok(NULL, " \n\t");
 		op_execute(&stack, opc, line_n);
 	}
 	free(line);
