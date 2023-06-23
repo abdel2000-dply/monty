@@ -22,6 +22,10 @@ int op_check(char *opc, char *arg, unsigned int line_n)
 	{
 		return (2);
 	}
+	else if (strcmp(opc, "pint") == 0)
+	{
+		return (3);
+	}
 
 	fprintf(stderr, "L%d: unknown instruction %s\n", line_n, opc);
 	exit(EXIT_FAILURE);

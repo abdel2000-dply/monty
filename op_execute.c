@@ -18,8 +18,12 @@ void op_execute(stack_t **stack, char *opc, char *arg, unsigned int line_n)
 		case 2: /* Pall opcode */
 			pall(stack, line_n);
 			break;
-			/* Add more cases for other opcodes */
+		case 3: /* Pint opcode */
+			pint(stack, line_n);
+			break;
 		default:
+			fprintf(stderr, "L%d: unknown instruction %s\n", line_n, opc);
+			exit(EXIT_FAILURE);
 			break;
 	}
 }
