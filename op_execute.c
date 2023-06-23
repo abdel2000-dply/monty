@@ -29,9 +29,9 @@ void op_execute(stack_t **stack, char *opc, unsigned int line_n)
 		{NULL, NULL}
 	};
 
-	if (opc == NULL || strcmp(opc, "") == 0 || strspn(opc, " \t\n") == strlen(opc))
-		        return;
-
+	while (opc[i] == ' ')
+		i++;
+	opc += i;
 	while (opst[i].opcode != NULL)
 	{
 		if (strcmp(opc, opst[i].opcode) == 0)
