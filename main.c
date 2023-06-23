@@ -1,9 +1,5 @@
 #define _POSIX_C_SOURCE 200809L
-
 #include "monty.h"
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
 
 char *arg = NULL;
 
@@ -31,7 +27,7 @@ int main(int argc, char *argv[])
 	file = fopen(argv[1], "r");
 	if (file == NULL)
 	{
-		fprintf(stderr, "Error: Cant't open file %s\n", argv[1]);
+		fprintf(stderr, "Error: Can't open file %s\n", argv[1]);
 		exit(EXIT_FAILURE);
 	}
 	while ((read = getline(&line, &len, file)) != -1)
