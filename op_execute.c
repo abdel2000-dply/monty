@@ -3,7 +3,6 @@
  * op_execute - execution of the opcode.
  * @stack: the stack
  * @opc: opcode
- * @arg: ...
  * @line_n: ...
  */
 void op_execute(stack_t **stack, char *opc, unsigned int line_n)
