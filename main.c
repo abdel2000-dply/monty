@@ -1,3 +1,4 @@
+#define _POSIX_C_SOURCE 200809L
 
 #include "monty.h"
 #include <stdio.h>
@@ -6,49 +7,6 @@
 
 char *arg = NULL;
 
-/**
- * op_check - checks the opcode.
- */
-int op_check(char *opc, char *arg, unsigned int line_n)
-{
-	if (strcmp(opc, "push") == 0)
-	{
-		if (arg == NULL)
-		{
-			fprintf(stderr, "L%d: usage: push integer\n", line_n);
-			exit(EXIT_FAILURE);
-		}
-		return 1;
-	}
-	else if (strcmp(opc, "pall") == 0)
-	{
-		return 2;
-	}
-
-	fprintf(stderr, "L%d: unknown instruction %s\n", line_n, opc);
-	exit(EXIT_FAILURE);
-}
-
-/**
- * op_execute - execution of the opcode.
- */
-void op_execute(stack_t **stack, char *opc, char *arg, unsigned int line_n)
-{
-	int op_flag = op_check(opc, arg, line_n);
-
-	switch (op_flag)
-	{
-		case 1: /* Push opcode */
-			push(stack, line_n);
-			break;
-		case 2: /* Pall opcode */
-			pall(stack, line_n);
-			break;
-			/* Add more cases for other opcodes */
-		default:
-			break;
-	}
-}
 /**
  * main - entry point
  * @argc: number of arguments.
@@ -85,6 +43,7 @@ int main(int argc, char *argv[])
 		arg = strtok(NULL, " \t\n");
 		op_execute(&stack, opc, arg, line_n);
 	}
+
 	fclose(file);
 
 	return (EXIT_SUCCESS);

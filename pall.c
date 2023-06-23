@@ -1,7 +1,9 @@
 #include "monty.h"
 /**
-  *
-  */
+ * pall - pall opcode
+ * @stack: the stack
+ * @line_n: ...
+ */
 void pall(stack_t **stack, unsigned int line_n)
 {
 	stack_t *curr = *stack;

@@ -2,8 +2,8 @@
 
 /**
  * push - Adds an element to the top of the stack.
- * @slack: the slack
- * @n: the element
+ * @stack: the slack
+ * @line_n: ...
  */
 void push(stack_t **stack, unsigned int line_n)
 {
