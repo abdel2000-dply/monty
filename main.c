@@ -18,7 +18,7 @@ int main(int argc, char *argv[])
 {
 	FILE *file;
 	stack_t *stack = NULL;
-	char *line = NULL, *opc, *arg;
+	char *line = NULL, *opc;
 	size_t len = 0;
 	unsigned int line_n = 0;
 	int read;
@@ -41,7 +41,7 @@ int main(int argc, char *argv[])
 		if (opc == NULL)
 			continue; /* skip a line */
 		arg = strtok(NULL, " \t\n");
-		op_execute(&stack, opc, arg, line_n);
+		op_execute(&stack, opc, line_n);
 	}
 	free(line);
 	fclose(file);

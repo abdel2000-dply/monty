@@ -6,24 +6,38 @@
  * @arg: ...
  * @line_n: ...
  */
-void op_execute(stack_t **stack, char *opc, char *arg, unsigned int line_n)
+void op_execute(stack_t **stack, char *opc, unsigned int line_n)
 {
-	int op_flag = op_check(opc, arg, line_n);
+	int i = 0;
 
-	switch (op_flag)
+	instruction_t opst[] = {
+		{"push", push},
+		{"pall", pall},
+		{"pint", pint},
+		{"pop", NULL},
+		{"swap", NULL},
+		{"add", NULL},
+		{"nop", NULL},
+		{"sub", NULL},
+		{"div", NULL},
+		{"mul", NULL},
+		{"mod", NULL},
+		{"pchar", NULL},
+		{"pstr", NULL},
+		{"rotl", NULL},
+		{"rotr", NULL},
+		{NULL, NULL}
+	};
+
+	while (opst[i].opcode != NULL)
 	{
-		case 1: /* Push opcode */
-			push(stack, line_n);
-			break;
-		case 2: /* Pall opcode */
-			pall(stack, line_n);
-			break;
-		case 3: /* Pint opcode */
-			pint(stack, line_n);
-			break;
-		default:
-			fprintf(stderr, "L%d: unknown instruction %s\n", line_n, opc);
-			exit(EXIT_FAILURE);
-			break;
+		if (strcmp(opc, opst[i].opcode) == 0)
+		{
+			opst[i].f(stack, line_n);
+			return;
+		}
+		i++;
 	}
+	fprintf(stderr, "L%d: unknown instruction %s\n", line_n, opc);
+	exit(EXIT_FAILURE);
 }
