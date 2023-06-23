@@ -8,12 +8,20 @@
 void push(stack_t **stack, unsigned int line_n)
 {
 	stack_t *new;
-	int value;
+	int value, i;
 
 	if (arg == NULL)
 	{
 		fprintf(stderr, "L%d: usage: push integer\n", line_n);
 		exit(EXIT_FAILURE);
+	}
+	for (i = 0; arg[i]; i++)
+	{
+		if (!isdigit(arg[i]) && arg[i] != '-' && arg[i] != '+')
+		{
+			fprintf(stderr, "L%d: usage: push integer\n", line_n);
+			exit(EXIT_FAILURE);
+		}
 	}
 	value = atoi(arg);
 	if (value == 0 && strcmp(arg, "0") != 0)
