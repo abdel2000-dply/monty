@@ -47,5 +47,6 @@ void op_execute(stack_t **stack, char *opc, char *arg, unsigned int line_n);
 
 void push(stack_t **stack, unsigned int line_n);
 void pall(stack_t **stack, unsigned int line_n);
+void pint(stack_t **stack, unsigned int line_n);
 
 #endif
