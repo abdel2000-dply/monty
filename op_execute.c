@@ -14,7 +14,7 @@ void op_execute(stack_t **stack, char *opc, unsigned int line_n)
 		{"push", push},
 		{"pall", pall},
 		{"pint", pint},
-		{"pop", NULL},
+		{"pop", pop},
 		{"swap", NULL},
 		{"add", NULL},
 		{"nop", NULL},
@@ -29,9 +29,17 @@ void op_execute(stack_t **stack, char *opc, unsigned int line_n)
 		{NULL, NULL}
 	};
 
-	while (opc[i] == ' ')
-		i++;
-	opc += i;
+	if (strcmp(opc, "push") == 0)
+	{
+		char *arg = strtok(NULL, " \n\t");
+		if (arg == NULL)
+		{
+			fprintf(stderr, "L%d: usage: push integer\n", line_n);
+			exit(EXIT_FAILURE);
+		}
+		opst[i].f(stack, line_n);
+		return;
+	}
 	while (opst[i].opcode != NULL)
 	{
 		if (strcmp(opc, opst[i].opcode) == 0)
