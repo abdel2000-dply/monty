@@ -1,4 +1,6 @@
-push 98
-push 402
-swap Holberton
-pall
+push 1
+push 1024
+push -0
+push -1
+push -1024
+push 123a

@@ -15,9 +15,12 @@ void push(stack_t **stack, unsigned int line_n)
 		fprintf(stderr, "L%d: usage: push integer\n", line_n);
 		exit(EXIT_FAILURE);
 	}
-	for (i = 0; arg[i]; i++)
+	for (i = 0; arg[i] != '\0'; i++)
 	{
-		if (!isdigit(arg[i]) && arg[i] != '-' && arg[i] != '+')
+		if (i == 0 && (arg[i] == '-' || arg[i] == '+'))
+			continue;
+
+		if (!isdigit(arg[i]))
 		{
 			fprintf(stderr, "L%d: usage: push integer\n", line_n);
 			exit(EXIT_FAILURE);
