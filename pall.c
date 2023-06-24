@@ -12,11 +12,10 @@ void pall(stack_t **stack, unsigned int line_n)
 	if (*stack == NULL)
 		return;
 
-	while (curr != NULL)
+	while (curr)
 	{
 		printf("%d\n", curr->n);
 		curr = curr->next;
 	}
-	fflush(stdout);
 }
 
