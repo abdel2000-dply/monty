@@ -16,7 +16,7 @@ void op_execute(stack_t **stack, char *opc, unsigned int line_n)
 		{"pop", pop},
 		{"swap", swap},
 		{"add", add},
-		{"nop", NULL},
+		{"nop", nop},
 		{"sub", NULL},
 		{"div", NULL},
 		{"mul", NULL},
