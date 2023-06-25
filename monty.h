@@ -50,7 +50,7 @@ int op_check(char *opc, unsigned int line_n);
 void op_execute(stack_t **stack, char *opc, unsigned int line_n);
 
 void free_stack(stack_t *stack);
-int is_number(const char *str);
+int is_number(char *str);
 
 void push(stack_t **stack, unsigned int line_n);
 void push_stack(stack_t **stack, int value);
