@@ -8,10 +8,12 @@
 void pop(stack_t **stack, unsigned int line_n)
 {
 	stack_t *temp;
+	char *m;
 
+	m = (mode == MODE_STACK)? "stack" : "queue";
 	if (*stack == NULL)
 	{
-		fprintf(stderr, "L%d: can't pop an empty stack\n", line_n);
+		fprintf(stderr, "L%d: can't pop an empty %s\n", line_n, m);
 		exit(EXIT_FAILURE);
 	}
 

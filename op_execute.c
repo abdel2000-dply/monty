@@ -25,6 +25,8 @@ void op_execute(stack_t **stack, char *opc, unsigned int line_n)
 		{"pstr", pstr},
 		{"rotl", rotl},
 		{"rotr", rotr},
+		{"stack", _stack},
+		{"queue", _queue},
 		{NULL, NULL}
 	};
 

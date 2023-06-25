@@ -2,6 +2,7 @@
 #include "monty.h"
 
 char *arg = NULL;
+int mode = MODE_STACK;
 
 /**
  * main - entry point

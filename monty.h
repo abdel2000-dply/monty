@@ -1,6 +1,9 @@
 #ifndef MONTY_H
 #define MONTY_H
 
+#define MODE_STACK 0
+#define MODE_QUEUE 1
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <sys/types.h>
@@ -11,6 +14,7 @@
 
 
 extern char *arg;
+extern int mode;
 
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
@@ -48,6 +52,9 @@ void op_execute(stack_t **stack, char *opc, unsigned int line_n);
 void free_stack(stack_t *stack);
 
 void push(stack_t **stack, unsigned int line_n);
+void push_stack(stack_t **stack, int value);
+void push_queue(stack_t **stack, int value);
+
 void pall(stack_t **stack, unsigned int line_n);
 void pint(stack_t **stack, unsigned int line_n);
 void pop(stack_t **stack, unsigned int line_n);
@@ -62,4 +69,7 @@ void pchar(stack_t **stack, unsigned int line_n);
 void pstr(stack_t **stack, unsigned int line_n);
 void rotl(stack_t **stack, unsigned int line_n);
 void rotr(stack_t **stack, unsigned int line_n);
+void _stack(stack_t **stack, unsigned int line_n);
+void _queue(stack_t **stack, unsigned int line_n);
+
 #endif
