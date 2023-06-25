@@ -33,6 +33,8 @@ int main(int argc, char *argv[])
 	while ((read = getline(&line, &len, file)) != -1)
 	{
 		line_n++;
+		if (line[0] == '#')
+			continue;
 		opc = strtok(line, " \n\t\r");
 		if (opc == NULL)
 			continue; /* skip a line */
