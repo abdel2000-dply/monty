@@ -14,13 +14,13 @@ int is_number(char *str)
 		i++;
 
 	if (str[i] == '\0')
-		return 0;
+		return (0);
 
 	for (; str[i] != '\0'; i++)
 	{
 		if (!isdigit(str[i]))
-			return 0;
+			return (0);
 	}
 
-	return 1;
+	return (1);
 }

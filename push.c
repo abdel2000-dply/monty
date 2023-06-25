@@ -68,24 +68,14 @@ void push(stack_t **stack, unsigned int line_n)
 {
 	int value;
 
-	if (arg == NULL)
+	if (arg == NULL || !is_number(arg))
 	{
 		fprintf(stderr, "L%d: usage: push integer\n", line_n);
 		exit(EXIT_FAILURE);
 	}
 
-	if (!is_number(arg))
-	{
-		fprintf(stderr,"L%d: usage: push integer\n", line_n);
-		exit(EXIT_FAILURE);
-	}
 	value = atoi(arg);
-	if (value == 0 && strcmp(arg, "0") != 0)
-	{
-		fprintf(stderr, "L%d: usage: push integer\n", line_n);
-		exit(EXIT_FAILURE);
-	}
-
+	
 	if (mode == MODE_STACK)
 		push_stack(stack, value);
 	else if (mode == MODE_QUEUE)
