@@ -75,7 +75,7 @@ void push(stack_t **stack, unsigned int line_n)
 	}
 
 	value = atoi(arg);
-	
+
 	if (mode == MODE_STACK)
 		push_stack(stack, value);
 	else if (mode == MODE_QUEUE)
