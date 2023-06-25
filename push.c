@@ -74,7 +74,7 @@ void push(stack_t **stack, unsigned int line_n)
 		exit(EXIT_FAILURE);
 	}
 
-	if (!isdigit(arg[0]) && arg[0] != '-' && arg[0] != '+')
+	if (!is_number(arg))
 	{
 		fprintf(stderr, "L%d: usage: push integer\n", line_n);
 		exit(EXIT_FAILURE);
