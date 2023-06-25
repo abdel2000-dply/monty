@@ -23,8 +23,8 @@ void op_execute(stack_t **stack, char *opc, unsigned int line_n)
 		{"mod", mod},
 		{"pchar", pchar},
 		{"pstr", pstr},
-		{"rotl", NULL},
-		{"rotr", NULL},
+		{"rotl", rotl},
+		{"rotr", rotr},
 		{NULL, NULL}
 	};
 
