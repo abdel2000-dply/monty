@@ -76,7 +76,7 @@ void push(stack_t **stack, unsigned int line_n)
 
 	if (!is_number(arg))
 	{
-		fprintf(stderr, "L%d: usage: push integer\n", line_n);
+		fprintf(stderr,"L%d: usage: push integer\n", line_n);
 		exit(EXIT_FAILURE);
 	}
 	value = atoi(arg);

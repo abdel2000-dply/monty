@@ -10,14 +10,17 @@ int is_number(char *str)
 {
 	int i = 0;
 
+	if (str[i] == '-' || str[i] == '+')
+		i++;
+
 	if (str[i] == '\0')
-		return (0);
+		return 0;
 
 	for (; str[i] != '\0'; i++)
 	{
-		if (!isdigit(str[i]) && str[i] != '-')
-			return (0);
+		if (!isdigit(str[i]))
+			return 0;
 	}
 
-	return (1);
+	return 1;
 }
