@@ -45,6 +45,8 @@ typedef struct instruction_s
 int op_check(char *opc, unsigned int line_n);
 void op_execute(stack_t **stack, char *opc, unsigned int line_n);
 
+void free_stack(stack_t *stack);
+
 void push(stack_t **stack, unsigned int line_n);
 void pall(stack_t **stack, unsigned int line_n);
 void pint(stack_t **stack, unsigned int line_n);
@@ -57,5 +59,6 @@ void _div(stack_t **stack, unsigned int line_n);
 void _mul(stack_t **stack, unsigned int line_n);
 void mod(stack_t **stack, unsigned int line_n);
 void pchar(stack_t **stack, unsigned int line_n);
+void pstr(stack_t **stack, unsigned int line_n);
 
 #endif
