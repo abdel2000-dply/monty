@@ -5,7 +5,7 @@
  * @stack: Double pointer to the stack.
  * @line_n: Current line number in the Monty file.
  */
-void rotr(stack_t **stack, unsigned int line_n);
+void rotr(stack_t **stack, unsigned int line_n)
 {
 	stack_t *last;
 	(void)line_n;
