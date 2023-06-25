@@ -66,23 +66,18 @@ void push_queue(stack_t **stack, int value)
  */
 void push(stack_t **stack, unsigned int line_n)
 {
-	int value, i;
+	int value;
 
 	if (arg == NULL)
 	{
 		fprintf(stderr, "L%d: usage: push integer\n", line_n);
 		exit(EXIT_FAILURE);
 	}
-	for (i = 0; arg[i] != '\0'; i++)
-	{
-		if (i == 0 && (arg[i] == '-' || arg[i] == '+'))
-			continue;
 
-		if (!isdigit(arg[i]))
-		{
-			fprintf(stderr, "L%d: usage: push integer\n", line_n);
-			exit(EXIT_FAILURE);
-		}
+	if (!isdigit(arg[0]) && arg[0] != '-' && arg[0] != '+')
+	{
+		fprintf(stderr, "L%d: usage: push integer\n", line_n);
+		exit(EXIT_FAILURE);
 	}
 	value = atoi(arg);
 	if (value == 0 && strcmp(arg, "0") != 0)
